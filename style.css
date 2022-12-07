@@ -1,8 +1,122 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    color: purple;
-    background-color: black;
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background-image 0.5s linear;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(5px) brightness(80%);
+}
+.container .box {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 450px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(0, 0, 0, 0.6);
+  border-radius: 25px;
+}
+.container .box .text {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  height: 250px;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  position: relative;
+  transition: background-image 0.5s linear;
+}
+.container .box .text #selections {
+  text-align: center;
+  width: 100%;
+}
+.container .box .text #selections * {
+  margin: 0 5px;
+  padding: 5px 10px;
+}
+.container .box .text #selections #year-input {
+  width: 80px;
+}
+.container .box .text #selections input[type=submit] {
+  border-radius: 10px;
+}
+.container .box .text h2, .container .box .text p {
+  text-shadow: 0 0 9px rgba(0, 0, 0, 0.8);
+}
+.container .box .text h2 {
+  font-size: 1.7em;
+}
+.container .box .text p {
+  margin-top: 5px;
+  font-size: 1.3em;
+  letter-spacing: 2px;
+}
+.container .box .dates {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  grid-gap: 10px;
+  height: 250px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #ffffff;
+  color: #000;
+}
+.container .box .dates div:nth-child(7n+1) {
+  color: red;
+  font-weight: bold;
+}
+.container .box .dates .today {
+  background: #83e6a4;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+@media (max-width: 565px) {
+  .container .box {
+    width: 350px;
+  }
+  .container .box .text {
+    height: 200px;
+  }
+  .container .box .text h2 {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  .container .box .text p {
+    margin-top: 5px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+  }
+  .container .box .dates {
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 0px;
+  }
 }
