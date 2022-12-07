@@ -89,6 +89,7 @@ body {
   background: #ffffff;
   color: #000;
 }
+/*Takes the 8th child of 7 elements so ends up highlighting the 1st element*/
 .container .box .dates div:nth-child(7n+1) {
   color: red;
   font-weight: bold;
