@@ -170,5 +170,11 @@ htmlSelections.addEventListener('submit', function (e) {
     }
     htmlOptionsMonth.value = 'Month';
     htmlYearInput.value = '';
+
 })
+
+    document.querySelector(".div-number").addEventListener("click", function (event) {
+        console.log(`Clicked ${event.target.innerText}`)
+    })
+
 
