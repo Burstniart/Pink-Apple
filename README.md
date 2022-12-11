@@ -10,7 +10,7 @@ Deployment sucessfull on:
 
 https://pink-apple.fly.dev/
 
-get the date once clicked on (a console.log will do for now)
+get the date once clicked on (definitly a console.log will do for now)
 
 set up an appointment function to send an event name, the date and time
 set up a data base
