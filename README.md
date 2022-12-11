@@ -10,7 +10,6 @@ Deployment sucessfull on:
 
 https://pink-apple.fly.dev/
 
-But now need to fi MIME types to recognize js and CSS
 get the date once clicked on (a console.log will do for now)
 
 set up an appointment function to send an event name, the date and time
