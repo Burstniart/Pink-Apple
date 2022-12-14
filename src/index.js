@@ -173,8 +173,42 @@ htmlSelections.addEventListener('submit', function (e) {
 
 })
 
-    document.querySelector(".div-number").addEventListener("click", function (event) {
+
+const htmlNumbersDiv = document.querySelector('.number');
+document.addEventListener("click", function(event){
+    if(event.target.className === "number" || event.target.className === "number today") {
+        console.log(`Over at ${event.target.innerText}`)
+    }
+})
+
+async function getDate() {
+    const promise = await htmlNumbersDiv.addEventListener("click", function (event) {
+       return event.target.innerText; 
+        })
+}
+console.log(getDate());
+ /*    document.querySelector('.dates').addEventListener("mouseover", function (event) {
         console.log(`Clicked ${event.target.innerText}`)
-    })
+    }) */
+// Variables
+
+const popupTrigger = document.querySelector('.popup-btn');
+const popup = document.querySelector('.popup');
+const closeBtn = document.querySelector('.btn');
+
+// Functions
+
+const showPopup = () => {
+  popup.classList.add('show');
+};
+
+const hidePopup = () => {
+  popup.classList.remove('show');
+};
+
+// Event Listeners
+
+htmlDatesDiv.addEventListener('click', showPopup);
+htmlDatesDiv.addEventListener('click', hidePopup);
 
 
