@@ -177,6 +177,7 @@ htmlSelections.addEventListener('submit', function (e) {
 const htmlNumbersDiv = document.querySelector('.number');
 document.addEventListener("click", function(event){
     if(event.target.className === "number" || event.target.className === "number today") {
+        openForm();
         console.log(`Over at ${event.target.innerText}`)
     }
 })
@@ -196,19 +197,15 @@ const popupTrigger = document.querySelector('.popup-btn');
 const popup = document.querySelector('.popup');
 const closeBtn = document.querySelector('.btn');
 
-// Functions
 
-const showPopup = () => {
-  popup.classList.add('show');
-};
 
-const hidePopup = () => {
-  popup.classList.remove('show');
-};
 
-// Event Listeners
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
 
-htmlDatesDiv.addEventListener('click', showPopup);
-htmlDatesDiv.addEventListener('click', hidePopup);
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+} 
 
 
