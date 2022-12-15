@@ -5,6 +5,14 @@ const todaysMonth = date.getMonth();
 const todaysWeekDay = date.getDay();
 const year = date.getFullYear();
 
+console.log(`date ${date}`)
+console.log(`day ${todaysDay}`)
+console.log(`month ${todaysMonth}`)
+console.log(`week day${todaysWeekDay}`)
+console.log(`year ${year}`)
+
+
+
 const weekDays = [
     'Sunday',
     'Monday',
@@ -177,8 +185,14 @@ htmlSelections.addEventListener('submit', function (e) {
 const htmlNumbersDiv = document.querySelector('.number');
 document.addEventListener("click", function(event){
     if(event.target.className === "number" || event.target.className === "number today") {
+        let fixedMonth = monthDays.indexOf(htmlMonth.innerText) + 1;
+        let fixedDate = `${htmlYear.innerText}-${fixedMonth}-${event.target.innerText}`;
+        console.log(fixedDate);
+        // single digit days and months must have a 0 so the date can work so get to work on that and then we'll be good to start sending the requests ;D
+        let testDate = '2022-01-05';
+        document.querySelector('.inputDates').value = testDate;
         openForm();
-        console.log(`Over at ${event.target.innerText}`)
+        console.log(`Over at ${event.target.innerText}`);
     }
 })
 
@@ -196,9 +210,6 @@ console.log(getDate());
 const popupTrigger = document.querySelector('.popup-btn');
 const popup = document.querySelector('.popup');
 const closeBtn = document.querySelector('.btn');
-
-
-
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
