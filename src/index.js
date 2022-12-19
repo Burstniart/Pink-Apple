@@ -182,39 +182,29 @@ htmlSelections.addEventListener('submit', function (e) {
 })
 
 
-const htmlNumbersDiv = document.querySelector('.number');
 document.addEventListener("click", function(event){
     if(event.target.className === "number" || event.target.className === "number today") {
-        let fixedMonth = monthDays.indexOf(htmlMonth.innerText) + 1;
-        let fixedDate = `${htmlYear.innerText}-${fixedMonth}-${event.target.innerText}`;
-        console.log(fixedDate);
-        // single digit days and months must have a 0 so the date can work so get to work on that and then we'll be good to start sending the requests ;D
-        let testDate = '2022-01-05';
-        document.querySelector('.inputDates').value = testDate;
+        // gets the right month number and pads it as well as the day
+        let fixedMonth = padZero(monthDays.indexOf(htmlMonth.innerText) + 1);
+        let fixedDay = padZero(event.target.innerText);
+        // formats the full clicked date
+        let fixedDate = `${htmlYear.innerText}-${fixedMonth}-${fixedDay}`;
+
+        document.querySelector('.inputDates').value = fixedDate;
         openForm();
-        console.log(`Over at ${event.target.innerText}`);
     }
 })
-
-async function getDate() {
-    const promise = await htmlNumbersDiv.addEventListener("click", function (event) {
-       return event.target.innerText; 
-        })
+// Converts number to string and pads with '0' if len of num is 1, returning a len 2 number to work with date value
+const padZero = function(padNum) {
+        padNum = `${padNum}`;
+        padNum = padNum.padStart(2, '0');
+        return padNum;
 }
-console.log(getDate());
- /*    document.querySelector('.dates').addEventListener("mouseover", function (event) {
-        console.log(`Clicked ${event.target.innerText}`)
-    }) */
-// Variables
 
-const popupTrigger = document.querySelector('.popup-btn');
-const popup = document.querySelector('.popup');
 const closeBtn = document.querySelector('.btn');
-
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
-
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 } 
