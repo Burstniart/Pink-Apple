@@ -10,14 +10,14 @@
 <body>
   <!-- The form -->
 <div class="form-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
+  <form method="POST"  action="/addDate" class="form-container">
     <h1>Set a date</h1>
 
     <label for="inputDates"><b>Date</b></label>
     <input type="date" name="inputDates" class="inputDates" required>
 
-    <label for="psw"><b>Event name/description</b></label>
-    <input type="text" placeholder="Event's name" name="psw" required>
+    <label for="msg"><b>Event name/description</b></label>
+    <input type="text" placeholder="Event's name" name="msg" required>
 
     <button type="submit" class="btn">Set date</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>

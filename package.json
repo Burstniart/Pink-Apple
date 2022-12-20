@@ -10,7 +10,9 @@
   "author": "Burstniart",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.1"
   },
   "devDependencies": {
     "parcel": "^2.8.0"
