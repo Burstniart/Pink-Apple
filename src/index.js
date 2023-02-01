@@ -5,14 +5,6 @@ const todaysMonth = date.getMonth();
 const todaysWeekDay = date.getDay();
 const year = date.getFullYear();
 
-console.log(`date ${date}`)
-console.log(`day ${todaysDay}`)
-console.log(`month ${todaysMonth}`)
-console.log(`week day${todaysWeekDay}`)
-console.log(`year ${year}`)
-
-
-
 const weekDays = [
     'Sunday',
     'Monday',

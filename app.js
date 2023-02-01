@@ -1,5 +1,4 @@
 const express = require('express')
-
 const app = express()
 app.use(express.json()) // Indicate we're using JSON
 const port = process.env.PORT || 3000
@@ -11,14 +10,17 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //mongodb lines
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-mongoose.connect("");
+// Working on getting this to do what it's supposed to do, gonna check mongosh maybe
+mongoose.connect("mongodb://localhost:27017/test");
+//mongoose.connect("mongodb://localhost:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.1/test");
+//try connecting to a db online, maybe that way it'll store the data, else look for a tutorial online
 
-let dateSchema = new mongoose.Schema({
+const dateSchema = new mongoose.Schema({
     date: String,
-    msg: String,
+    msg: String
 })
 
-let dateNight = mongoose.model("dateNight", dateSchema);
+const dateNight = mongoose.model("dateNight", dateSchema);
 
 
 // Serve Js and CSS files
@@ -30,16 +32,16 @@ app.get('/',(req, res) => {
 
 // test new route / response
 app.post('/addDate', (req,res) => {
-    const myDate = new dateNight(req.body)
+    var myDate = new dateNight(req.body)
     myDate.save()
         .then(item => {
             res.send("item saved to database")
         })
         .catch(err => {
-            res.status(400).send("unable to sabe to database")
+            res.status(400).send("unable to save to database")
         })
 
-    const dateNight = {date: "2022-12-18", msg:"Monika date night"}
+    // const dateNight = {date: "2022-12-18", msg:"Monika date night"}
     res.send(req.params)
 })
 
